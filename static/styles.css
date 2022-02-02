@@ -1,0 +1,30 @@
+#container{
+    padding-top: 3%;
+    margin-top: 4%;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: #D3ECA7;
+}
+#send{
+    margin-left: 25%;
+}
+#clear{
+    margin-left: 5%;
+}
+#buttons{
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+#table{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#labelSubmit{
+    text-align: left;
+}
+#buttonResponse{
+  
+   padding-left: 50%;   
+   padding-right: 50%;  
+
+}

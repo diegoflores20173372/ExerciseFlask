@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Información Formulario</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="row justify-content-center" id="container">
+    <label id="labelSubmit">Información Recibida</label>
+    <table class="table table-bordered" id="table">
+
+        <tbody>
+            {% for dojo in dojos %}
+            <tr>
+                <th scope="row">Nombre</th>
+                <td>{{ dojo.nombre_dojo }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Fecha Creación</th>
+                <td>{{ dojo.fecha_creacion_dojo }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Dojo Locación</th>
+                <td>{{ dojo.localizacion_dojo }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Lenguaje de Programación</th>
+                <td>{{ dojo.caracteristicas_dojo }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Comentario</th>
+                <td>{{ dojo.dojo_activo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="buttonResponse">
+        <button style="margin-bottom: 10%;" type="button" class="btn btn-dark" id="buttonResponse">Atrás</button>
+    </div>
+
+</div>
+{% endblock %}

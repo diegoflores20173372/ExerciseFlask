@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Formularios con Flask</title>
+{% endblock %}
+
+
+{% block body %}
+<body>
+
+ <div class="row justify-content-center" id="container">
+        
+        <div >
+            <form action="/process" method="POST">
+                <div class="form-group row">
+                    <label for="name" class="col-form-label col-sm-5">Nombre:</label>
+                    <input type="text" class="form-control col-sm-7" id="name" name="name" aria-describedby="emailHelp" placeholder="Ingresa tu nombre" required>
+                </div>
+                <div class="form-group row">
+                    <label for="cellphone" class="col-form-label col-sm-5">Celular:</label>
+                    <input type="number" class="form-control col-sm-7" id="cellphone" name="cellphone" aria-describedby="emailHelp" placeholder="Ingresa tu celular" required>
+                </div>
+                <div class="form-group row">
+                    <label for="dojoLocation" class="col-form-label col-sm-5">Dojo Locación:</label>
+                    <select required class="custom-select col-sm-7" id="dojoLocation" name="dojoLocation" >
+                        <option selected disabled value="">Seleccionar Dojo Locación</option>
+                        <option value="1">San José</option>
+                        <option value="2">Madrid</option>
+                        <option value="3">Lima</option>
+                    </select>
+                
+                </div>
+                <div class="form-group row">
+                    <label for="language" class="col-form-label col-sm-5">Lenguaje Favorito:</label>
+                    <select required class="custom-select col-sm-7" id="language" name="language">
+                        <option selected disabled value="">Seleccionar Lenguaje de Programación</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="c">C</option>
+                        <option value="c+">C++</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="language" class="col-form-label">Comentario:</label>
+                    <textarea class="form-control" id="comentarioDojo" name="comentarioDojo" rows="2"></textarea>
+                </div>
+                <div class="row" id="buttons">
+                    <button class="btn btn-dark col-sm-4 .offset-sm-4" id="clear">Limpiar</button>
+                    
+                    <button type="submit" class="btn btn-dark col-sm-4 " id="send">Enviar</button>
+                </div>
+            
+            </form>
+        </div>
+    
+</div>
+{% endblock %}
