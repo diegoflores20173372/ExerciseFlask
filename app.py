@@ -1,4 +1,3 @@
-from os import sep
 import traceback
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
@@ -15,9 +14,9 @@ class Dojo(db.Model):
     aforo_dojo = db.Column(db.Integer, nullable=False)
     fecha_creacion_dojo = db.Column(db.DateTime, nullable=False)
     localizacion_dojo = db.Column(db.String(255), nullable=False)
-    caracteristicas_dojo = db.Column(db.PickleType, nullable=False)
+    caracteristicas_dojo = db.Column(db.PickleType)
     dojo_activo = db.Column(db.Boolean, nullable=False)
-    comentario_dojo = db.Column(db.String(255), nullable=False)
+    comentario_dojo = db.Column(db.String(255))
 
 
 @app.route('/')

@@ -10,7 +10,8 @@ $(document).ready(function() {
         $("#caractDojo3").prop("checked", false);
         $("#caractDojo4").prop("checked", false);
         $("#caractDojo5").prop("checked", false);
-        $("#flexRadioDefault1").val(null);
+        $("#flexRadioDefault1").prop("checked", false);
+        //$("#flexRadioDefault1").val(null);
         $("#comentarioDojo").val(null);
 
         console.log("limpieza");
