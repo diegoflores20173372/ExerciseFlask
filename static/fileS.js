@@ -1,8 +1,8 @@
 $(document).ready(function() {
      
     $("#limpiar").click(function() {
-        $("#name").val(null);
-        $("#date").val(null);
+        $("#nombre").val(null);
+        $("#fecha").val(null);
         $("#aforo").val(null);
         $("#dojoLocation").val(null);
         $("#caractDojo1").prop("checked", false);

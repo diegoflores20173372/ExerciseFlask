@@ -1,4 +1,5 @@
 from os import sep
+import traceback
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -28,21 +29,22 @@ def process():
     if request.method == 'POST':
         nuevo_dojo = Dojo()
         
-        nuevo_dojo.nombre_dojo = request.form["name"]
+        nuevo_dojo.nombre_dojo = request.form["nombre"]
         nuevo_dojo.aforo_dojo = request.form["aforo"]
-        split_fecha = request.form["date"].split(sep="-")
+        split_fecha = request.form["fecha"].split(sep="-")
         nuevo_dojo.fecha_creacion_dojo = datetime(int(split_fecha[0]), int(split_fecha[1]), int(split_fecha[2]))
         nuevo_dojo.localizacion_dojo = request.form['dojoLocation']
         nuevo_dojo.caracteristicas_dojo = request.form.getlist('caracteristicasDojo')
         nuevo_dojo.dojo_activo = bool(request.form['estadoDojo'])
         nuevo_dojo.comentario_dojo = request.form['comentarioDojo']
 
-
+        
         try:
             db.session.add(nuevo_dojo)
             db.session.commit()
             return result()
         except:
+            print(traceback.format_exc())
             return 'Problemas al insertar en la Base de Datos'
     else:
         return redirect(url_for('index'))
