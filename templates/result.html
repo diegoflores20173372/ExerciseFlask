@@ -11,32 +11,50 @@
     <table class="table table-bordered" id="table">
 
         <tbody>
-            {% for dojo in dojos %}
+            
             <tr>
                 <th scope="row">Nombre</th>
                 <td>{{ dojo.nombre_dojo }}</td>
             </tr>
             <tr>
                 <th scope="row">Fecha Creación</th>
-                <td>{{ dojo.fecha_creacion_dojo }}</td>
+                <td>{{ dojo.fecha_creacion_dojo.strftime('%Y-%m-%d') }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Aforo</th>
+                <td>{{ dojo.aforo_dojo }}</td>
             </tr>
             <tr>
                 <th scope="row">Dojo Locación</th>
                 <td>{{ dojo.localizacion_dojo }}</td>
             </tr>
             <tr>
-                <th scope="row">Lenguaje de Programación</th>
-                <td>{{ dojo.caracteristicas_dojo }}</td>
+                <th scope="row">Características del Dojo</th>
+                <td>
+                {% for caract in dojo.caracteristicas_dojo %}
+                - {{ caract }}
+                <br>
+                {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Estado del Dojo</th>
+                {% if dojo.dojo_activo == True %}
+                <td>Operativo</td>
+                {% else %}
+                <td>No Operativo</td>
+                {% endif %}
             </tr>
             <tr>
                 <th scope="row">Comentario</th>
-                <td>{{ dojo.dojo_activo }}</td>
+                <td>{{ dojo.comentario_dojo }}</td>
             </tr>
-            {% endfor %}
+            
         </tbody>
     </table>
+
     <div class="buttonResponse">
-        <button style="margin-bottom: 10%;" type="button" class="btn btn-dark" id="buttonResponse">Atrás</button>
+        <button style="margin-bottom: 10%;" type="button" class="btn btn-dark" id="atras" href="/">Atrás</button>
     </div>
 
 </div>

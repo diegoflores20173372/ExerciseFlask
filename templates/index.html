@@ -1,57 +1,109 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>Formularios con Flask</title>
+<title>Formularios con Flask</title>
 {% endblock %}
 
 
 {% block body %}
+
 <body>
 
- <div class="row justify-content-center" id="container">
-        
-        <div >
-            <form action="/process" method="POST">
-                <div class="form-group row">
-                    <label for="name" class="col-form-label col-sm-5">Nombre:</label>
-                    <input type="text" class="form-control col-sm-7" id="name" name="name" aria-describedby="emailHelp" placeholder="Ingresa tu nombre" required>
+    <div class="row justify-content-center" id="container">
+
+        <form action="/process" method="POST" class="col-sm-8">
+            <div class="form-group row">
+                <label for="name" class="col-form-label col-sm-5">Nombre:</label>
+                <input type="text" class="form-control col-sm-7" id="name" name="name" aria-describedby="emailHelp"
+                    placeholder="Ingresa el nombre del dojo" required>
+            </div>
+            <div class="form-group row">
+                <label for="date" class="col-form-label col-sm-5">Fecha de creación:</label>
+                <input type="date" class="form-control col-sm-7" id="date" name="date" required>
+            </div>
+            <div class="form-group row">
+                <label for="aforo" class="col-form-label col-sm-5">Aforo:</label>
+                <input type="number" class="form-control col-sm-7" id="aforo" name="aforo"
+                    placeholder="Ingresa el aforo del dojo" required>
+            </div>
+            <div class="form-group row">
+                <label for="dojoLocation" class="col-form-label col-sm-5">Dojo Locación:</label>
+                <select required class="custom-select col-sm-7" id="dojoLocation" name="dojoLocation">
+                    <option selected disabled value="">Seleccionar Dojo Locación</option>
+                    <option value="Miraflores">Miraflores</option>
+                    <option value="Cercado">Cercado</option>
+                    <option value="Mariano Melgar">Mariano Melgar</option>
+                    <option value="Selva Alegre">Selva Alegre</option>
+                    <option value="Yanahuara">Yanahuara</option>
+                </select>
+
+            </div>
+
+            <div class="form-group row">
+                <label for="language" class="col-sm-5">Características:</label>
+                <div class="col-sm-7">
+                    <div class="form-check">
+                        <input class="form-check-input" name="caracteristicasDojo" type="checkbox" value="Limpio" id="caractDojo1">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Limpio
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" name="caracteristicasDojo" type="checkbox" value="Ordenado" id="caractDojo2">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Ordenado
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" name="caracteristicasDojo" type="checkbox" value="Nuevo" id="caractDojo3">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Nuevo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" name="caracteristicasDojo" type="checkbox" value="Antiguo" id="caractDojo4">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Antiguo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" name="caracteristicasDojo" type="checkbox" value="Grande" id="caractDojo5">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Grande
+                        </label>
+                    </div>
                 </div>
-                <div class="form-group row">
-                    <label for="cellphone" class="col-form-label col-sm-5">Celular:</label>
-                    <input type="number" class="form-control col-sm-7" id="cellphone" name="cellphone" aria-describedby="emailHelp" placeholder="Ingresa tu celular" required>
+            </div>
+            <div class="form-group row">
+                <label for="language" class="col-form-label col-sm-6">Estado dojo:</label>
+
+                <div class="form-check col-sm-2">
+                    <input class="form-check-input" type="radio" name="estadoDojo" id="flexRadioDefault1" value="T">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Operativo
+                    </label>
                 </div>
-                <div class="form-group row">
-                    <label for="dojoLocation" class="col-form-label col-sm-5">Dojo Locación:</label>
-                    <select required class="custom-select col-sm-7" id="dojoLocation" name="dojoLocation" >
-                        <option selected disabled value="">Seleccionar Dojo Locación</option>
-                        <option value="1">San José</option>
-                        <option value="2">Madrid</option>
-                        <option value="3">Lima</option>
-                    </select>
-                
+                <div class="form-check col-sm-4">
+                    <input class="form-check-input" type="radio" name="estadoDojo" id="flexRadioDefault1" value=""
+                        checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        No operativo
+                    </label>
                 </div>
-                <div class="form-group row">
-                    <label for="language" class="col-form-label col-sm-5">Lenguaje Favorito:</label>
-                    <select required class="custom-select col-sm-7" id="language" name="language">
-                        <option selected disabled value="">Seleccionar Lenguaje de Programación</option>
-                        <option value="python">Python</option>
-                        <option value="java">Java</option>
-                        <option value="c">C</option>
-                        <option value="c+">C++</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="language" class="col-form-label">Comentario:</label>
-                    <textarea class="form-control" id="comentarioDojo" name="comentarioDojo" rows="2"></textarea>
-                </div>
-                <div class="row" id="buttons">
-                    <button class="btn btn-dark col-sm-4 .offset-sm-4" id="clear">Limpiar</button>
-                    
-                    <button type="submit" class="btn btn-dark col-sm-4 " id="send">Enviar</button>
-                </div>
-            
-            </form>
-        </div>
-    
-</div>
-{% endblock %}
+
+            </div>
+            <div class="form-group">
+                <label for="language" class="col-form-label">Comentario:</label>
+                <textarea class="form-control" id="comentarioDojo" name="comentarioDojo" rows="2"></textarea>
+            </div>
+            <div class="row" id="buttons">
+                <button type="button" class="btn btn-dark col-sm-4 .offset-sm-4" id="limpiar">Limpiar</button>
+
+                <button type="submit" class="btn btn-dark col-sm-4 " id="send">Enviar</button>
+            </div>
+
+        </form>
+
+
+    </div>
+    {% endblock %}
