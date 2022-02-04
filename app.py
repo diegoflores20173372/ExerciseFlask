@@ -41,7 +41,7 @@ def process():
         try:
             db.session.add(nuevo_dojo)
             db.session.commit()
-            return result()
+            return redirect(url_for('result'))
         except:
             print(traceback.format_exc())
             return 'Problemas al insertar en la Base de Datos'
