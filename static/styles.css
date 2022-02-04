@@ -3,12 +3,14 @@
     margin-top: 4%;
     margin-left: 20%;
     margin-right: 20%;
+    border: 5px solid #000000;
+
     background-color: #D3ECA7;
 }
 #send{
     margin-left: 25%;
 }
-#clear{
+#limpiar{
     margin-left: 5%;
 }
 #buttons{
@@ -27,4 +29,8 @@
    padding-left: 50%;   
    padding-right: 50%;  
 
+}
+#active{
+    margin-right: 10%;
+    margin-left: 10%;
 }
